@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.pm'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'software.amazon.awscdk:aws-cdk-lib:2.219.0'
+    implementation 'com.amazonaws:aws-java-sdk:1.12.792'
+}
+

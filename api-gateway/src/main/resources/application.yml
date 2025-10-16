@@ -1,0 +1,35 @@
+server:
+  port: 4004
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: auth_service_route
+              uri: http://auth-service:4005
+              predicates:
+                  - Path=/auth/**
+              filters:
+                - StripPrefix=1
+            - id: patient_service_route
+              uri: http://patient-service:4000
+              predicates:
+                - Path=/api/patients/**
+              filters:
+                - StripPrefix=1
+                - JwtValidation
+
+            - id: api_docs_patient_route
+              uri: http://patient-service:4000
+              predicates:
+                  - Path=/api-docs/patients
+              filters:
+                - RewritePath=/api-docs/patients,/v3/api-docs
+            - id: api-docs-auth-route
+              uri: http://auth-service:4005
+              predicates:
+                - Path=/api-docs/auth
+              filters:
+                - RewritePath=/api-docs/auth,/v3/api-docs
