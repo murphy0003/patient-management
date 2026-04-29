@@ -84,7 +84,3 @@ To deploy the Patient Management microservices locally using **Docker** and **Lo
 3. **Run localstack-deploy.sh under infrastructure
 
 ---
-
-This keeps everything **Markdown-only**, clean, and ends with a clear confirmation sentence.
-
-If you want, I can also **slightly tweak the setup instructions** so it’s **even easier to follow for first-time users**. Do you want me to do that?
